@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Prelabel Page</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            font-size: 48px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .animation-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .celebration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #ff9900, #ff6699);
+            opacity: 0.5;
+            animation: celebrationAnimation 3s infinite;
+        }
+
+        @keyframes celebrationAnimation {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(100%);
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var buzzer = new Audio("/static/buzzer.wav");
+            buzzer.play();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="animation-container">
+        <div class="celebration"></div>
+    </div>
+    <h1>{{ prelabel }}</h1>
+</body>
+
+</html>
